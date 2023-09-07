@@ -1,0 +1,98 @@
+<!-- PRE LOGIN -->
+
+<div class="auth-container" *ngIf="isAuthenticated == false">
+  <div class="form-container" [ngSwitch]="isRegistering">
+    <form *ngSwitchCase="true" (ngSubmit)="register()">
+      <h2>Registrazione</h2>
+      <label for="name">Name:</label>
+      <input type="name" id="name" name="name" [(ngModel)]="registerForm.name" required>
+      <label for="username">Username:</label>
+      <input type="username" id="username" name="username" [(ngModel)]="registerForm.username" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="registerForm.email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="registerForm.password" required>
+      <button type="submit">Registrati</button>
+    </form>
+
+    <!-- Form di accesso -->
+    <form *ngSwitchCase="false" (ngSubmit)="login()">
+      <h2>Accesso</h2>
+      <label for="username">Username:</label>
+      <input type="username" id="username" name="username" [(ngModel)]="loginForm.username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="loginForm.password" required>
+      <button type="submit">Accedi</button>
+    </form>
+  </div>
+  <div class="toggle-link">
+    <a href="#" (click)="toggleAuthMode($event)" class="text-light">
+      {{ isRegistering ? 'Hai già un account? Accedi qui.' : 'Non hai un account? Registrati qui.' }}
+    </a>
+  </div>
+</div>
+
+<!-- POST LOGIN -->
+
+
+<div *ngIf="isAuthenticated == true">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-4 mb-5">
+        <div class="card-wrapper">
+          <a href="https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-16-notes/">
+          <div class="card-top card-1"></div>
+          <div class="card-bottom">
+            <span class="top-text">PATCH 13.16 NOTES</span><br>
+            <span class="bottom-text">Split 2 is going full steam ahead, and what better way to keep the ranked journey entertaining than with a new patch—welcome to 13.16!</span>
+            <br>
+          </div>
+        </a>
+        </div>
+      </div>
+
+      <div class="col-4 mb-5">
+        <div class="card-wrapper">
+          <a href="https://www.leagueoflegends.com/en-gb/news/dev/champion-insights-briar/">
+          <div class="card-top card-2"></div>
+          <div class="card-bottom">
+            <span class="top-text">CHAMPION INSIGHTS: BRIAR</span><br>
+            <span class="bottom-text">Welcome to Noxus. The home of ruthless warlords, expansionist dreams, and quite possibly your new best friend—at least, if she had it her way.</span>
+            <br>
+          </div>
+        </a>
+        </div>
+      </div>
+
+      <div class="col-4 mb-5">
+        <div class="card-wrapper">
+          <a href="https://lolesports.com/">
+          <div class="card-top card-3"></div>
+          <div class="card-bottom">
+            <span class="top-text">LOL Esport</span><br>
+            <span class="bottom-text">Split 2 is going full steam ahead, and what better way to keep the ranked journey entertaining than with a new patch—welcome to 13.16!</span>
+            <br>
+          </div>
+        </a>
+        </div>
+      </div>
+
+      <div class="col-4 mb-5">
+        <div class="card-wrapper">
+          <a href="https://www.op.gg/multisearch/euw?summoners=Dartus%2CDrPeolo%2CTekla%2CSono+d%C3%A8presso%2CVenomazz">
+          <div class="card-top card-4"></div>
+          <div class="card-bottom">
+            <span class="top-text">OP.GG</span><br>
+            <span class="bottom-text">The best player in the entire history of lol!</span>
+            <br>
+          </div>
+        </a>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

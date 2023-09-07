@@ -1,0 +1,64 @@
+Ruolo: Top Lane
+
+Uccisioni: 2 punti per uccisione
+Assist: 1 punto per assistenza
+Morti: -1 punto per morte
+Minion farm: 0,1 punti per minion ucciso
+Oro guadagnato: 0,01 punti per oro guadagnato
+Oggetti completati: 1.5 punti per oggetto completato
+Punti visione (warding): 0,5 punti per ward posizionato
+Punti obiettivo: 2 punti per torretta distrutta, 3 punti per drago o Baron Nashor uccisi
+bonus vittoria: +3
+bonus sconfitta: -2
+
+Ruolo: Jungle
+
+Uccisioni: 2 punti per uccisione
+Assist: 1 punto per assistenza
+Morti: -1 punto per morte
+Minion farm: 0,05 punti per minion ucciso
+Oro guadagnato: 0,02 punti per oro guadagnato
+Oggetti completati: 1.5 punti per oggetto completato
+Punti visione (warding): 1 punto per ward posizionato
+Punti obiettivo: 2 punti per drago o Baron Nashor uccisi
+bonus vittoria: +3
+bonus sconfitta: -2
+
+Ruolo: Mid Lane
+
+Uccisioni: 2 punti per uccisione
+Assist: 1 punto per assistenza
+Morti: -1 punto per morte
+Minion farm: 0,1 punti per minion ucciso
+Oro guadagnato: 0,02 punti per oro guadagnato
+Oggetti completati: 1.5 punti per oggetto completato
+Punti visione (warding): 0,5 punti per ward posizionato
+Punti obiettivo: 1 punto per torretta distrutta
+bonus vittoria: +3
+bonus sconfitta: -2
+
+Ruolo: Bot Lane (ADC)
+
+Uccisioni: 3 punti per uccisione
+Assist: 1,5 punti per assistenza
+Morti: -1,5 punti per morte
+Minion farm: 0,15 punti per minion ucciso
+Oro guadagnato: 0,03 punti per oro guadagnato
+Oggetti completati: 1.2 punti per oggetto completato
+Punti visione (warding): 0,5 punti per ward posizionato
+Punti obiettivo: 1 punto per torretta distrutta
+bonus vittoria: +3
+bonus sconfitta: -2
+
+Ruolo: Bot Lane (Support)
+
+Uccisioni: 1 punto per uccisione
+Assist: 2 punti per assistenza
+Morti: -1 punto per morte
+Minion farm: 0,05 punti per minion ucciso
+Oro guadagnato: 0,02 punti per oro guadagnato
+Oggetti completati: 2 punti per oggetto completato
+Punti visione (warding): 1 punto per ward posizionato
+Punti obiettivo: 2 punti per drago o Baron Nashor uccisi
+bonus vittoria: +3
+bonus sconfitta: -2

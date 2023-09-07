@@ -1,0 +1,40 @@
+* {
+  color: white;
+}
+
+.line-gradient-left {
+  background: transparent linear-gradient(90deg,rgba(223,179,94,0),#6d4508 48%,#dfb35e) 0 0 no-repeat padding-box;
+  height: 2px;
+  min-height: 2px;
+  margin-right: 10px;
+    flex: 1 1 0%;
+    box-sizing: border-box;
+
+}
+
+.line-gradient-right {
+  background: transparent linear-gradient(90deg,#dfb35e,#6d4508 52%,rgba(223,179,94,0)) 0 0 no-repeat padding-box;
+  height: 2px;
+  min-height: 2px;
+  margin-left: 10px;
+    flex: 1 1 0%;
+    box-sizing: border-box;
+}
+
+.container-line {
+  place-content: center;
+  align-items: center;
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.partite {
+  height: 6rem;
+  width: 20rem;
+  min-width: 18rem;
+  background-color: rgba(0, 0, 118, 0.7);
+  margin: 1rem 1rem;
+  border-radius: 1rem;
+  border: 3px solid black;
+}

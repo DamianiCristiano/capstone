@@ -1,0 +1,36 @@
+/* Stile del tema scuro con colori blu meno accesi */
+.dark-mode {
+  background-color: #263338; /* Colore di sfondo scuro */
+  color: #fff; /* Testo bianco */
+  box-shadow: 0.063rem 0 .5rem 0 #000000;
+}
+
+
+/* Stile delle intestazioni dell'accordion con colore blu meno acceso */
+.dark-mode .accordion-header {
+  background-color: #000943; /* Colore di sfondo blu meno acceso */
+  color: #fff; /* Testo bianco */
+}
+
+/* Stile del testo del pannello con colore blu meno acceso */
+.dark-mode .accordion-body {
+  background-color: #263338; /* Colore di sfondo blu meno acceso più scuro */
+  color: #fff; /* Testo bianco */
+}
+
+/* Rimuovi i bordi bianchi dall'accordion */
+.accordion-item {
+  border: none;
+}
+
+/* Rimuovi il bordo bianco dagli accordion-buttons */
+.accordion-button {
+  border: none;
+}
+
+/* Rimuovi il bordo bianco dai pannelli dei contenuti */
+.accordion-body {
+  border: none;
+}
+
+
