@@ -64,6 +64,7 @@ export class SideNavComponent implements OnInit {
     this.isAuthenticated = false;
     // Redirigi l'utente alla pagina di accesso o a un'altra pagina desiderata
     // Puoi usare il router di Angular per farlo
+    window.location.reload();
   }
 
   ngOnInit(): void {

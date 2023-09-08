@@ -25,6 +25,8 @@ export class AuthService {
         tap(response => {
           if (response.body && response.body.accessToken) {
             const token = response.body.accessToken;
+            console.log(response.body);
+
             localStorage.setItem('token', token); // Salva il token nel localStorage
             this.isAuthenticated.next(true);
           }
@@ -51,8 +53,6 @@ export class AuthService {
     } else {
       this.isAuthenticated.next(false);
     }
-
-    console.log(token);
     return this.isAuthenticated.asObservable();
   }
 }
