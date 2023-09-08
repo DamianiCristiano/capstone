@@ -15,6 +15,7 @@ import { AuthService } from './service/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './service/HTTPInterceptor';
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
+import { SliderLogoComponent } from './components/slider-logo/slider-logo.component';
 
 
 
@@ -30,7 +31,8 @@ import { LoginRegisterComponent } from './pages/login-register/login-register.co
     CalendarComponent,
     BodyComponent,
     FaqComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    SliderLogoComponent
   ],
   imports: [
     BrowserModule,
