@@ -29,7 +29,7 @@ export class PlayerService {
   }
 
   createPlayer(newPlayerData: any) {
-    return this.http.post('/api/players', newPlayerData);
+    return this.http.post('/api/players/create', newPlayerData);
   }
 
   updatePlayer(playerId: number, updatedPlayerData: any) {
