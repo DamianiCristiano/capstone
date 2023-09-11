@@ -5,6 +5,7 @@ import { LobbiesComponent } from './pages/lobbies/lobbies.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     component: FaqComponent,
     path: 'faq',
+    },
+  {
+    component: AdminComponent,
+    path: 'admin',
     },
 ];
 

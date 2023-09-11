@@ -57,9 +57,13 @@ export class SideNavComponent implements OnInit {
     });
   }
 
+  isAdmin = localStorage.getItem('isAdmin');
+
+
   logout() {
     // Esegui la logica di logout, come rimuovere il token dal localStorage
     localStorage.removeItem('token');
+    localStorage.removeItem('isAdmin');
     // Imposta isAuthenticated su false
     this.isAuthenticated = false;
     // Redirigi l'utente alla pagina di accesso o a un'altra pagina desiderata

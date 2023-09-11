@@ -1,13 +1,22 @@
+import { AppComponent } from './../app.component';
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap} from 'rxjs';
-import { JWTAuthResponse } from '../interface/JWTAuthResponse';
 
+interface AuthResponse {
+  username: string;
+  accessToken: string;
+  tokenType: string;
+  id_role: number;
+  id_user: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+
 
   private backendUrl = 'http://localhost:8080/api/auth';
 
@@ -19,14 +28,15 @@ export class AuthService {
     return this.http.post(`${this.backendUrl}/register`, user);
   }
 
+
+
   login(username: string, password: string) {
-    return this.http.post<JWTAuthResponse>(`${this.backendUrl}/login`, { username, password }, { observe: 'response' })
+    return this.http.post<AuthResponse>(`${this.backendUrl}/login`, { username, password }, { observe: 'response' })
       .pipe(
         tap(response => {
           if (response.body && response.body.accessToken) {
             const token = response.body.accessToken;
             console.log(response.body);
-
             localStorage.setItem('token', token); // Salva il token nel localStorage
             this.isAuthenticated.next(true);
           }

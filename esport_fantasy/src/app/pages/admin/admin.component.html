@@ -1,0 +1,21 @@
+<p>admin works!</p>
+
+<form [formGroup]="playerForm" (ngSubmit)="createPlayer()">
+  <div class="form-group">
+    <label for="name">Nome del giocatore:</label>
+    <input type="text" id="name" formControlName="name">
+  </div>
+  <div class="form-group">
+    <label for="nationality">Nazionalità:</label>
+    <input type="text" id="nationality" formControlName="nationality">
+  </div>
+  <div class="form-group">
+    <label for="role">Ruolo:</label>
+    <input type="text" id="role" formControlName="role">
+  </div>
+  <div class="form-group">
+    <label for="teamId">ID della squadra:</label>
+    <input type="number" id="teamId" formControlName="teamId">
+  </div>
+  <button type="submit" [disabled]="playerForm.invalid">Crea Giocatore</button>
+</form>

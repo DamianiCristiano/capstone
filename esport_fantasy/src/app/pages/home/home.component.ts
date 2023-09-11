@@ -1,5 +1,5 @@
 import { SideNavComponent } from './../../components/side-nav/side-nav.component';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 
 
@@ -36,6 +36,7 @@ export class HomeComponent {
     this.authService.register(this.registerForm).subscribe(
       (response) => {
 
+
         console.log('Utente registrato:', response);
       },
       (error) => {
@@ -45,11 +46,18 @@ export class HomeComponent {
     );
   }
 
+
+
   login() {
     this.authService.login(this.loginForm.username, this.loginForm.password).subscribe(
       (response) => {
         // Gestisci la risposta dopo l'accesso
+        if(response.body?.id_role == 1) {
+          localStorage.setItem("isAdmin" , 'true');
+        } else localStorage.setItem("isAdmin" , 'false');
+
         console.log('Accesso effettuato:', response);
+        window.location.reload();
       },
       (error) => {
         // Gestisci gli errori durante l'accesso

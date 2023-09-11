@@ -34,4 +34,9 @@ export const navbarData = [
     icon: 'fas fa-sign-out-alt',
     label: 'Logout',
   },
+  {
+    routeLink: 'admin',
+    icon: 'fas fa-user-shield',
+    label: 'admin',
+  },
 ];

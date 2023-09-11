@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, Output, ViewChild } from '@angular/core';
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 
 interface SideNavToggle {
@@ -22,4 +22,6 @@ export class AppComponent {
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;
   }
+
+
 }

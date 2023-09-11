@@ -10,12 +10,13 @@ import { LobbiesComponent } from './pages/lobbies/lobbies.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { BodyComponent } from './components/body/body.component';
 import { FaqComponent } from './pages/faq/faq.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './service/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './service/HTTPInterceptor';
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 import { SliderLogoComponent } from './components/slider-logo/slider-logo.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 
 
@@ -32,14 +33,16 @@ import { SliderLogoComponent } from './components/slider-logo/slider-logo.compon
     BodyComponent,
     FaqComponent,
     LoginRegisterComponent,
-    SliderLogoComponent
+    SliderLogoComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,
