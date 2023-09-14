@@ -54,9 +54,11 @@ export class HomeComponent {
         // Gestisci la risposta dopo l'accesso
         if(response.body?.id_role == 1) {
           localStorage.setItem("isAdmin" , 'true');
-        } else localStorage.setItem("isAdmin" , 'false');
-
-        console.log('Accesso effettuato:', response);
+          localStorage.setItem("username" , response.body.username);
+        } else if(response.body?.id_role !== undefined && response.body?.id_role != 1) {
+          localStorage.setItem("isAdmin" , 'false')
+          localStorage.setItem("username" , response.body.username);
+        };
         window.location.reload();
       },
       (error) => {
@@ -65,6 +67,4 @@ export class HomeComponent {
       }
     );
   }
-
-
 }

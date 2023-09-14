@@ -36,9 +36,11 @@ export class SideNavComponent implements OnInit {
   isAuthenticated: boolean = false;
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
+
   collapsed= false;
   screenWidth = 0;
   navData = navbarData;
+  router: any;
 
 
   @HostListener('window:resize', ['$event'])
@@ -59,16 +61,24 @@ export class SideNavComponent implements OnInit {
 
   isAdmin = localStorage.getItem('isAdmin');
 
+  username: string | null = localStorage.getItem('username');
+
+
 
   logout() {
     // Esegui la logica di logout, come rimuovere il token dal localStorage
     localStorage.removeItem('token');
     localStorage.removeItem('isAdmin');
+    localStorage.removeItem('username');
+    console.log(this.username);
+
     // Imposta isAuthenticated su false
     this.isAuthenticated = false;
     // Redirigi l'utente alla pagina di accesso o a un'altra pagina desiderata
     // Puoi usare il router di Angular per farlo
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   }
 
   ngOnInit(): void {
@@ -87,4 +97,6 @@ export class SideNavComponent implements OnInit {
     this.onToggleSideNav.emit({collapsed: this.collapsed,
       screenWidth: this.screenWidth});
   }
+
+
 }

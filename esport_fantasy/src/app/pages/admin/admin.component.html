@@ -1,21 +1,163 @@
-<p>admin works!</p>
+<div class="container mb-5">
+  <div class="row">
+    <h1 class="col justify-content-center text-light fs-1 mt-2">ADMIN</h1>
+  </div>
+</div>
+
+<div class="d-flex">
 
 <form [formGroup]="playerForm" (ngSubmit)="createPlayer()">
   <div class="form-group">
-    <label for="name">Nome del giocatore:</label>
-    <input type="text" id="name" formControlName="name">
+    <label for="nickname" class="text-light">Nome del giocatore :</label>
+    <input type="text" class="text-dark" id="nickname" formControlName="nickname">
   </div>
   <div class="form-group">
-    <label for="nationality">Nazionalità:</label>
-    <input type="text" id="nationality" formControlName="nationality">
+    <label for="nationality" class="text-light">Nazionalità :</label>
+    <input type="text" class="text-dark" id="nationality" formControlName="nationality">
   </div>
   <div class="form-group">
-    <label for="role">Ruolo:</label>
-    <input type="text" id="role" formControlName="role">
+    <label for="role" class="text-light">Ruolo :</label>
+    <input type="text" class="text-dark" id="role" formControlName="role">
   </div>
   <div class="form-group">
-    <label for="teamId">ID della squadra:</label>
-    <input type="number" id="teamId" formControlName="teamId">
+    <label for="team_id" class="text-light">Team_id :</label>
+    <input type="number" class="text-dark" id="team_id" formControlName="team_id">
   </div>
   <button type="submit" [disabled]="playerForm.invalid">Crea Giocatore</button>
 </form>
+
+<form [formGroup]="teamForm" (ngSubmit)="createTeam()">
+  <div class="form-group">
+    <label for="name" class="text-light">Nome del team :</label>
+    <input type="text" class="text-dark" id="name" formControlName="name">
+  </div>
+  <div class="form-group">
+    <label for="nationality" class="text-light">Nazionalità :</label>
+    <input type="text" class="text-dark" id="nationality" formControlName="nationality">
+  </div>
+  <div class="form-group">
+    <label for="league" class="text-light">League :</label>
+    <input type="text" class="text-dark" id="league" formControlName="league">
+  </div>
+  <button type="submit" [disabled]="teamForm.invalid">Crea Team</button>
+</form>
+</div>
+
+
+<div class="mb-5 pb-5 mt-5 pt-5">
+  <div class="container">
+    <div class="row">
+      <h2 class="col justify-content-center text-light fs-1 mt-2">PLAYER</h2>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+  <div class="row">
+
+
+      <p-table [value]="players" [tableStyle]="{'min-width': '60rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="nickname" style="width:20%">Nickname <p-sortIcon field="nickname"></p-sortIcon></th>
+                <th pSortableColumn="nationality" style="width:20%">Nationality <p-sortIcon field="nationality"></p-sortIcon></th>
+                <th pSortableColumn="role" style="width:20%">Role <p-sortIcon field="role"></p-sortIcon></th>
+                <th pSortableColumn="team" style="width:20%">Team <p-sortIcon field="team"></p-sortIcon></th>
+                <th style="width:20%"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-player>
+            <tr>
+                <td>{{player.nickname}}</td>
+                <td>{{player.nationality}}</td>
+                <td>{{player.role}}</td>
+                <td>{{player.team_id}}</td>
+                <td> <p-button (click)="startEdit(player.idPlayer)" icon="pi pi-pencil" styleClass="me-3 p-button-rounded p-button-warning p-button-text p-button-raised"></p-button>
+                  <p-button (click)="deletePlayer(player.idPlayer)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"></p-button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+            <!--        EDIT MODE        -->
+    <div *ngFor="let player of players">
+      <div *ngIf="editMode && selectedPlayerId === player.idPlayer">
+        <form [formGroup]="editForm" (ngSubmit)="savePlayer()">
+          <div class="form-group">
+          <label class="text-light" for="nickname">Nome del giocatore :</label>
+          <input type="text" class="text-dark" id="nickname" formControlName="nickname">
+        </div>
+        <div class="form-group">
+          <label class="text-light" for="nationality">Nazionalità :</label>
+          <input type="text" class="text-dark" id="nationality" formControlName="nationality">
+        </div>
+        <div class="form-group">
+          <label class="text-light" for="role">Ruolo :</label>
+          <input type="text" class="text-dark" id="role" formControlName="role">
+        </div>
+        <div class="form-group">
+          <label class="text-light" for="team_id">Team_id :</label>
+          <input type="number" class="text-dark" id="team_id" formControlName="team_id">
+        </div>
+          <button type="submit">Salva</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+<div class="mt-5 pt-5">
+  <div class="container">
+    <div class="row">
+      <h2 class="col justify-content-center text-light fs-1 mt-2">LEAGUE</h2>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+  <div class="row">
+
+
+      <p-table [value]="teams" [tableStyle]="{'min-width': '60rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="name" style="width:25%">Name <p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="league" style="width:25%">League <p-sortIcon field="league"></p-sortIcon></th>
+                <th pSortableColumn="nationality" style="width:25%">Nationality <p-sortIcon field="nationality"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-team>
+            <tr>
+                <td>{{team.name}}</td>
+                <td>{{team.league}}</td>
+                <td>{{team.nationality}}</td>
+                <td> <p-button (click)="startEditT(team.id)" icon="pi pi-pencil" styleClass="me-3 p-button-rounded p-button-warning p-button-text p-button-raised"></p-button>
+                  <p-button (click)="deleteTeam(team.id)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"></p-button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+            <!--        EDIT MODE        -->
+      <div *ngFor="let team of teams">
+      <div *ngIf="editMode && selectedTeamId === team.id">
+        <form [formGroup]="editFormT" (ngSubmit)="saveTeam()">
+          <div class="form-group">
+          <label class="text-light" for="name">Nome del team :</label>
+          <input type="text" class="text-dark" id="nameTeam" formControlName="name">
+        </div>
+        <div class="form-group">
+          <label class="text-light" for="league">League :</label>
+          <input type="text" class="text-dark" id="leagueTeam" formControlName="league">
+        </div>
+        <div class="form-group">
+          <label class="text-light" for="nationality">Nazionalità :</label>
+          <input type="text" class="text-dark" id="nationality" formControlName="nationality">
+        </div>
+          <button type="submit">Salva</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

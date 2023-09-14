@@ -1,5 +1,5 @@
 import { Component, Input, Output, ViewChild } from '@angular/core';
-import { LoginRegisterComponent } from './pages/login-register/login-register.component';
+import { PrimeNGConfig } from 'primeng/api';
 
 interface SideNavToggle {
   screenWidth: number;

@@ -1,4 +1,3 @@
-import { AppComponent } from './../app.component';
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap} from 'rxjs';
@@ -39,6 +38,7 @@ export class AuthService {
             console.log(response.body);
             localStorage.setItem('token', token); // Salva il token nel localStorage
             this.isAuthenticated.next(true);
+
           }
         }),
       );
@@ -65,4 +65,5 @@ export class AuthService {
     }
     return this.isAuthenticated.asObservable();
   }
+
 }

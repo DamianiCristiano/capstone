@@ -3,25 +3,57 @@
 <div class="auth-container" *ngIf="isAuthenticated == false">
   <div class="form-container" [ngSwitch]="isRegistering">
     <form *ngSwitchCase="true" (ngSubmit)="register()">
-      <h2>Registrazione</h2>
-      <label for="name">Name:</label>
-      <input type="name" id="name" name="name" [(ngModel)]="registerForm.name" required>
-      <label for="username">Username:</label>
-      <input type="username" id="username" name="username" [(ngModel)]="registerForm.username" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" [(ngModel)]="registerForm.email" required>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="registerForm.password" required>
+      <h2 class="mb-4">Registrazione</h2>
+
+      <div class="p-inputgroup mb-4">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input pInputText placeholder="Name" type="name" id="name" name="name" [(ngModel)]="registerForm.name" required/>
+      </div>
+
+      <div class="p-inputgroup mb-4">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input pInputText placeholder="Username" type="username" id="username" name="username" [(ngModel)]="registerForm.username" required/>
+      </div>
+
+      <div class="p-inputgroup mb-4">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-envelope"></i>
+        </span>
+        <input pInputText placeholder="Email" type="email" id="email" name="email" [(ngModel)]="registerForm.email" required/>
+      </div>
+
+      <div class="p-inputgroup mb-4">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-key"></i>
+        </span>
+        <input pInputText placeholder="Password" type="password" id="password" name="password" [(ngModel)]="registerForm.password" required/>
+      </div>
+
       <button type="submit">Registrati</button>
     </form>
 
     <!-- Form di accesso -->
     <form *ngSwitchCase="false" (ngSubmit)="login()">
-      <h2>Accesso</h2>
-      <label for="username">Username:</label>
-      <input type="username" id="username" name="username" [(ngModel)]="loginForm.username" required>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="loginForm.password" required>
+      <h2 class="mb-4">Accesso</h2>
+
+      <div class="p-inputgroup mb-4">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input pInputText placeholder="Username" type="username" id="username" name="username" [(ngModel)]="loginForm.username" required/>
+      </div>
+
+      <div class="p-inputgroup mb-4">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-key"></i>
+        </span>
+        <input pInputText placeholder="Password" type="password" id="password" name="password" [(ngModel)]="loginForm.password" required/>
+      </div>
+
       <button type="submit">Accedi</button>
     </form>
   </div>
