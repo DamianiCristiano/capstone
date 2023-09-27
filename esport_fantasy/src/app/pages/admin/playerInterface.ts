@@ -3,5 +3,5 @@ export interface player {
   nickname: String,
   nationality: String,
   role: String,
-  team_id: Number,
+  teamId: Number,
 };

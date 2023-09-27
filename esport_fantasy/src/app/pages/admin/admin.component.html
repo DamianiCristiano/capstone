@@ -1,48 +1,76 @@
-<div class="container mb-5">
+<div class="container mb-5 mb-lg-0">
   <div class="row">
     <h1 class="col justify-content-center text-light fs-1 mt-2">ADMIN</h1>
   </div>
 </div>
 
-<div class="d-flex">
+<!-- Form crezione player e team -->
 
-<form [formGroup]="playerForm" (ngSubmit)="createPlayer()">
-  <div class="form-group">
-    <label for="nickname" class="text-light">Nome del giocatore :</label>
-    <input type="text" class="text-dark" id="nickname" formControlName="nickname">
-  </div>
-  <div class="form-group">
-    <label for="nationality" class="text-light">Nazionalità :</label>
-    <input type="text" class="text-dark" id="nationality" formControlName="nationality">
-  </div>
-  <div class="form-group">
-    <label for="role" class="text-light">Ruolo :</label>
-    <input type="text" class="text-dark" id="role" formControlName="role">
-  </div>
-  <div class="form-group">
-    <label for="team_id" class="text-light">Team_id :</label>
-    <input type="number" class="text-dark" id="team_id" formControlName="team_id">
-  </div>
-  <button type="submit" [disabled]="playerForm.invalid">Crea Giocatore</button>
-</form>
+<div class="d-flex flex-wrap">
 
-<form [formGroup]="teamForm" (ngSubmit)="createTeam()">
-  <div class="form-group">
-    <label for="name" class="text-light">Nome del team :</label>
-    <input type="text" class="text-dark" id="name" formControlName="name">
+  <div class="col-12 col-xl-4 mb-5">
+    <form [formGroup]="playerForm" (ngSubmit)="createPlayer()">
+      <div class="form-group">
+        <label for="nickname" class="text-light">Nome del giocatore :</label>
+        <input type="text" class="text-dark" id="nickname" formControlName="nickname">
+      </div>
+      <div class="form-group">
+        <label for="nationality" class="text-light">Nazionalità :</label>
+        <input type="text" class="text-dark" id="nationality" formControlName="nationality">
+      </div>
+      <div class="form-group">
+        <label for="role" class="text-light">Ruolo :</label>
+        <input type="text" class="text-dark" id="role" formControlName="role">
+      </div>
+      <div class="form-group">
+        <label for="teamId" class="text-light">Team_id :</label>
+        <input type="number" class="text-dark" id="teamId" formControlName="teamId">
+      </div>
+      <button type="submit" [disabled]="playerForm.invalid">Crea Giocatore</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="nationality" class="text-light">Nazionalità :</label>
-    <input type="text" class="text-dark" id="nationality" formControlName="nationality">
+
+  <div class="col-12 col-xl-4 mt-5 mb-5 mt-xl-0 mb-xl-0">
+    <form [formGroup]="teamForm" (ngSubmit)="createTeam()">
+      <div class="form-group">
+        <label for="name" class="text-light">Nome del team :</label>
+        <input type="text" class="text-dark" id="name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="nationality" class="text-light">Nazionalità :</label>
+        <input type="text" class="text-dark" id="nationality" formControlName="nationality">
+      </div>
+      <div class="form-group">
+        <label for="league" class="text-light">League :</label>
+        <input type="text" class="text-dark" id="league" formControlName="league">
+      </div>
+      <button type="submit" [disabled]="teamForm.invalid">Crea Team</button>
+    </form>
+
+
   </div>
-  <div class="form-group">
-    <label for="league" class="text-light">League :</label>
-    <input type="text" class="text-dark" id="league" formControlName="league">
+
+  <div class="col-12 col-xl-4 mt-5 mt-xl-0">
+    <form [formGroup]="matchForm" (ngSubmit)="createMatch()">
+      <div class="form-group">
+        <label for="teamBId" class="text-light">Id team blu :</label>
+        <input type="text" class="text-dark" id="teamBId" formControlName="teamBId">
+      </div>
+      <div class="form-group">
+        <label for="teamRId" class="text-light">Id team rosso :</label>
+        <input type="text" class="text-dark" id="teamRId" formControlName="teamRId">
+      </div>
+      <div class="form-group">
+        <label for="dayOfGames" class="text-light">Giornata della partita :</label>
+        <input type="text" class="text-dark" id="dayOfGames" formControlName="dayOfGames">
+      </div>
+      <button type="submit" [disabled]="matchForm.invalid">Crea Match</button>
+    </form>
   </div>
-  <button type="submit" [disabled]="teamForm.invalid">Crea Team</button>
-</form>
+
 </div>
 
+<!-------- TABELLE --------->
 
 <div class="mb-5 pb-5 mt-5 pt-5">
   <div class="container">
@@ -70,7 +98,7 @@
                 <td>{{player.nickname}}</td>
                 <td>{{player.nationality}}</td>
                 <td>{{player.role}}</td>
-                <td>{{player.team_id}}</td>
+                <td>{{ player.team ? player.team.name : '-' }}</td>
                 <td> <p-button (click)="startEdit(player.idPlayer)" icon="pi pi-pencil" styleClass="me-3 p-button-rounded p-button-warning p-button-text p-button-raised"></p-button>
                   <p-button (click)="deletePlayer(player.idPlayer)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"></p-button></td>
             </tr>
@@ -94,8 +122,8 @@
           <input type="text" class="text-dark" id="role" formControlName="role">
         </div>
         <div class="form-group">
-          <label class="text-light" for="team_id">Team_id :</label>
-          <input type="number" class="text-dark" id="team_id" formControlName="team_id">
+          <label class="text-light" for="teamId">Team :</label>
+          <input type="number" class="text-dark" id="teamId" formControlName="teamId">
         </div>
           <button type="submit">Salva</button>
         </form>
@@ -106,11 +134,10 @@
 </div>
 
 
-
 <div class="mt-5 pt-5">
   <div class="container">
     <div class="row">
-      <h2 class="col justify-content-center text-light fs-1 mt-2">LEAGUE</h2>
+      <h2 class="col justify-content-center text-light fs-1 mt-2">TEAM</h2>
     </div>
   </div>
 
@@ -121,14 +148,16 @@
       <p-table [value]="teams" [tableStyle]="{'min-width': '60rem'}">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="name" style="width:25%">Name <p-sortIcon field="name"></p-sortIcon></th>
-                <th pSortableColumn="league" style="width:25%">League <p-sortIcon field="league"></p-sortIcon></th>
-                <th pSortableColumn="nationality" style="width:25%">Nationality <p-sortIcon field="nationality"></p-sortIcon></th>
+              <th pSortableColumn="nationality" style="width:20%">id <p-sortIcon field="idTeam"></p-sortIcon></th>
+                <th pSortableColumn="name" style="width:20%">Name <p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="league" style="width:20%">League <p-sortIcon field="league"></p-sortIcon></th>
+                <th pSortableColumn="nationality" style="width:20%">Nationality <p-sortIcon field="nationality"></p-sortIcon></th>
                 <th></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-team>
             <tr>
+                <td>{{team.id}}</td>
                 <td>{{team.name}}</td>
                 <td>{{team.league}}</td>
                 <td>{{team.nationality}}</td>
@@ -154,6 +183,54 @@
           <label class="text-light" for="nationality">Nazionalità :</label>
           <input type="text" class="text-dark" id="nationality" formControlName="nationality">
         </div>
+          <button type="submit">Salva</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="mt-5 pt-5">
+  <div class="container">
+  <div class="row">
+    <h2 class="col justify-content-center text-light fs-1 mt-2 pb-5 pt-5">MATCH</h2>
+
+    <p-table [value]="matches" [tableStyle]="{'min-width': '60rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="teamBId" style="width:25%">BluTeam <p-sortIcon field="teamBId"></p-sortIcon></th>
+                <th pSortableColumn="teamRId" style="width:25%">RedTeam <p-sortIcon field="teamRId"></p-sortIcon></th>
+                <th pSortableColumn="dayOfGames" style="width:25%">DayOfGames <p-sortIcon field="DayOfGames"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-match>
+            <tr>
+                <td>{{match.teamBId.name}}</td>
+                <td>{{match.teamRId.name}}</td>
+                <td>{{match.dayOfGames}}</td>
+                <td> <p-button (click)="startEditMatch(match.id)" icon="pi pi-pencil" styleClass="me-3 p-button-rounded p-button-warning p-button-text p-button-raised"></p-button>
+                  <p-button (click)="deleteMatch(match.id)" icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"></p-button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <div *ngFor="let match of matches">
+      <div *ngIf="editMode && selectedMatchId === match.id">
+        <form [formGroup]="editMatch" (ngSubmit)="saveMatch()">
+          <div class="form-group">
+            <label for="teamBId" class="text-light">Id team blu :</label>
+            <input type="text" class="text-dark" id="teamBId" formControlName="teamBId">
+          </div>
+          <div class="form-group">
+            <label for="teamRId" class="text-light">Id team rosso :</label>
+            <input type="text" class="text-dark" id="teamRId" formControlName="teamRId">
+          </div>
+          <div class="form-group">
+            <label for="dayOfGames" class="text-light">Giornata della partita :</label>
+            <input type="text" class="text-dark" id="dayOfGames" formControlName="dayOfGames">
+          </div>
           <button type="submit">Salva</button>
         </form>
       </div>

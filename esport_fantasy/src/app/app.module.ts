@@ -27,6 +27,8 @@ import { SpeedDialModule } from 'primeng/speeddial';
 import { MessageService } from 'primeng/api';
 import { PlayerPartitaService } from './service/player-partita.service';
 import { TeamService } from './service/team.service';
+import {CalendarModule} from 'primeng/calendar';
+import { MatchService } from './service/match.service';
 
 
 
@@ -60,13 +62,15 @@ import { TeamService } from './service/team.service';
     InputTextModule,
     CheckboxModule,
     RadioButtonModule,
-    SpeedDialModule
+    SpeedDialModule,
+    CalendarModule
   ],
   providers: [
     AuthService,
     MessageService,
     PlayerPartitaService,
     TeamService,
+    MatchService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

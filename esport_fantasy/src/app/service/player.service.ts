@@ -18,7 +18,7 @@ export class PlayerService {
     return this.http.get(`${this.backendUrl}/all`);
   }
 
-  getPlayerById(playerId: number) {
+  getPlayerById(playerId: number)  {
     return this.http.get<player>(`${this.backendUrl}/${playerId}`);
   }
 
@@ -53,8 +53,9 @@ export class PlayerService {
     return this.http.post(`${this.backendUrl}/create`, newPlayerData, httpOptions);
   }
 
-  updatePlayer(playerId: number, updatedPlayerData: any) {
-    return this.http.put(`${this.backendUrl}/edit/${playerId}`, updatedPlayerData);
+  updatePlayer(playerId: number, playerData: any, teamId: number) {
+    const updateData = { ...playerData, teamId: teamId }; // Aggiungi l'ID del team ai dati del giocatore
+    return this.http.put(`${this.backendUrl}/edit/${playerId}`, updateData);
   }
 
 

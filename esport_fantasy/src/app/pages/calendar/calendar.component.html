@@ -2,19 +2,22 @@
   <div class="row align-items-center">
     <div class="col text-center">
       <h2 class="mb-4">CALENDAR</h2>
+      <div *ngFor="let matchGroup of matches">
         <div class="col">
-        <div class="container-line">
-          <div class="line-gradient-left"></div>
-          <div>Round 1</div>
-          <div class="line-gradient-right"></div>
+          <div class="container-line">
+            <div class="line-gradient-left"></div>
+            <div>Round {{ matchGroup[0].dayOfGames }}</div>
+            <div class="line-gradient-right"></div>
+          </div>
+          <div class="row flex-wrap justify-content-around">
+            <div class="col-4 partite flex-column d-flex align-items-center justify-content-center fs-3" *ngFor="let match of matchGroup">
+              <div class="fs-2">{{match.teamBId.name}} - {{match.teamRId.name}}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="row flex-wrap justify-content-around">
-    <div class="col-4 partite d-flex align-items-center justify-content-center">
-    </div>
-  </div>
+
 
